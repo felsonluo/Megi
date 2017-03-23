@@ -1,0 +1,85 @@
+.mg-login-bg {
+    background: url('./src/app/images/reg-bg.gif');
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-color: #ede2d4;
+    background-size: 100%;
+    height: 616px;
+    background-position: center -120px;
+}
+
+.mg-username-input,
+.mg-password-input {
+    margin: auto;
+    background-image: url(./src/app/images/i-login.png);
+    font-size: 13px;
+    width: 345px;
+    height: 40px;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    padding-left: 44px;
+    margin-top: 20px;
+}
+
+.mg-username-input {
+    background-position: 13px 4px;
+}
+
+.mg-password-input {
+    background-position: 13px -33px;
+}
+
+.mg-logo {
+    margin: 0 auto;
+    width: 134px;
+    height: 55px;
+    background-image: url(./src/app/images/logo.png);
+    background-repeat: no-repeat;
+}
+
+.mg-login-box {
+    float: left;
+    max-width: 345px;
+    padding: 0 10px;
+    border-radius: 3px;
+    margin-top: 95.5px;
+    margin-left: calc((100% - 345px) /2);
+    -moz-margin-left: calc((100% - 345px) /2);
+    -webkit-margin-left: calc((100% - 345px) /2);
+}
+
+.mg-login-input {
+    margin-top: 20px;
+}
+
+.mg-lang-bar {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.mg-lang-bar a {
+    color: #489de0;
+    padding: 2px 10px 2px 10px;
+}
+
+.mg-login-button {
+    color: #fff;
+    font-size: 18px;
+    padding: 6px 0;
+    width: 345px;
+    display: block;
+    height: 33px;
+    border-width: 0;
+    background-color: #449be0;
+    background: linear-gradient(#469ee4, #449be0) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-color: #0193bf;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+    margin-top: 20px;
+    font-weight: bold;
+    border-radius: 3px;
+    text-align: center;
+    border-style: solid;
+    text-decoration: none;
+    font-family: 'Microsoft-Yahei !important'
+}

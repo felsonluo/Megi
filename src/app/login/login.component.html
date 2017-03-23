@@ -1,0 +1,23 @@
+<div class='mg-main mg-login-bg'>
+    <div class='mg-login-box'>
+        <div class="mg-logo">
+        </div>
+        <div class="mg-lang-bar">
+            切换语言 : <a href="javascript:void(0)" id="0x0009" onclick="mUtil.ChangeLang('0x0009',3)" class="">English</a><a href="javascript:void(0)" id="0x7C04" onclick="mUtil.ChangeLang('0x7C04',3)" class="">中文(繁体)</a>
+        </div>
+        <div class="mg-input-div">
+            <input [(ngModel)]="userName" [typeahead]="dataSource" (typeaheadLoading)="changeUserNameLoading($event)" (typeaheadOnSelect)="userNameOnSelect($event)" typeaheadOptionsLimit="7" typeaheadOptionField="email" placeholder="邮箱" class="form-control mg-username-input">
+            <div *ngIf="typeaheadLoading===true">
+                <i class="glyphicon glyphicon-refresh ng-hide"></i>
+            </div>
+
+            <input [(ngModel)]="password" type="password" placeholder="密码" class="form-control mg-password-input">
+
+            <button type="button" class="btn btn-primary mg-login-button" [(ngModel)]="singleModel" btnCheckbox btnCheckboxTrue="1" btnCheckboxFalse="0">
+  登录
+</button>
+
+        </div>
+
+    </div>
+</div>
