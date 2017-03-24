@@ -22,11 +22,11 @@
 }
 
 .mg-username-input {
-    background-position: 13px 4px;
+    background-position: 13px 1px;
 }
 
 .mg-password-input {
-    background-position: 13px -33px;
+    background-position: 13px -36px;
 }
 
 .mg-logo {
@@ -42,7 +42,7 @@
     max-width: 365px;
     padding: 0 10px;
     border-radius: 3px;
-    margin-top: calc((428px) * 0.31415 + 1px);
+    margin-top: calc((100vh - 500px) * 0.68 + 1px);
     margin-left: calc((100% - 345px) /2);
     -moz-margin-left: calc((100% - 345px) /2);
     -webkit-margin-left: calc((100% - 345px) /2);
