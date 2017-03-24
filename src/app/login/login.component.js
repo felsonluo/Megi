@@ -9,11 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var forms_1 = require('@angular/forms');
 var Observable_1 = require('rxjs/Observable');
 require('rxjs/add/observable/of');
 var LoginComponent = (function () {
-    function LoginComponent() {
+    function LoginComponent(fb) {
         var _this = this;
+        this.form = new forms_1.FormGroup({
+            userName: new forms_1.FormControl('a', forms_1.Validators.minLength(2)),
+            password: new forms_1.FormControl('b')
+        });
         this.statesComplex = [
             { email: '344913393@qq.com' },
             { email: 'leedan1130@163.com' },
@@ -26,6 +31,10 @@ var LoginComponent = (function () {
         })
             .mergeMap(function (token) { return _this.getStatesAsObservable(token); });
     }
+    LoginComponent.prototype.setValue = function () { this.form.setValue({ first: 'Carson', last: 'Drew' }); };
+    LoginComponent.prototype.onSubmit = function () {
+        console.log(this.form.value); // {first: 'Nancy', last: 'Drew'}
+    };
     LoginComponent.prototype.getStatesAsObservable = function (token) {
         var query = new RegExp(token, 'ig');
         return Observable_1.Observable.of(this.statesComplex.filter(function (state) {
@@ -45,7 +54,7 @@ var LoginComponent = (function () {
             moduleId: module.id,
             styleUrls: ['./login.component.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [forms_1.FormBuilder])
     ], LoginComponent);
     return LoginComponent;
 }());
