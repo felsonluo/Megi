@@ -30,6 +30,14 @@ textarea {
     line-height: 25px;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 body,
 html {
     margin: 0 auto;
@@ -57,4 +65,112 @@ input::-ms-input-placeholder {
     /*Internet Explorer*/
     color: #C2CBD3;
     font-style: oblique;
+}
+
+div.mg-tab {
+    height: 35px;
+    margin-left: 82px !important;
+    width: calc(100% - 82px) !important;
+    -webkit-width: calc(100% - 82px) !important;
+    -moz-width: calc(100% - 82px);
+}
+
+.mg-tab-inner {
+    background-image: url(./src/app/images/main-tab-bg.png) !important;
+    background-position: right -34px;
+    float: left;
+    height: 34px;
+    width: 150px;
+}
+
+li.nav-item {
+    float: left;
+    margin: 1px 0 0 -3px;
+    background-image: url(./src/app/images/main-tab-bg.png) !important;
+    z-index: 99;
+    min-width: 55px;
+    max-width: 140px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    display: block;
+    height: 34px;
+    line-height: 34px;
+}
+
+.mg-tab-item {
+    display: block;
+    white-space: nowrap;
+    text-align: center;
+    overflow: hidden;
+    font-weight: bold;
+    float: left;
+    width: 134px;
+    height: 34px;
+    line-height: 34px;
+    color: #fff;
+}
+
+.mg-refresh {
+    display: block;
+    width: 13px;
+    height: 13px;
+    position: relative;
+    float: right;
+    top: 13px;
+    left: -13px;
+    background-repeat: no-repeat;
+    background-image: url(./src/app/images/tab-refresh.png);
+    text-decoration: 0;
+}
+
+.mg-tab {
+    float: left;
+}
+
+.mg-tab .nav-link.active {
+    background: none;
+}
+
+.mg-tab li.active {
+    background-image: url(./src/app/images/main-tab-bg-current.png) !important;
+    z-index: 100;
+    position: relative;
+}
+
+.mg-tab li.active .mg-tab-item {
+    color: #3c4b5d;
+}
+
+.mg-tab ul li:last-child {
+    width: 78px;
+}
+
+.mg-tab li.active .mg-tab-inner {
+    background-image: url(./src/app/images/main-tab-bg-current.png) !important;
+    background-position: right -34px;
+}
+
+.mg-tab .nav-link {
+    border: 0;
+    height: 34px;
+}
+
+.mg-tab .nav-tabs {
+    border-bottom: 0;
+}
+
+.mg-tab .nav-link {
+    padding: 0;
+}
+
+.mg-tab .stable {
+    width: 88px;
+}
+
+.mg-tab .stable .mg-tab-item {
+    width: 88px;
+}
+
+.mg-tab .mg-refresh:hover {
+    background-image: url(./src/app/images/tab-refresh-hover.png);
 }

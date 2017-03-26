@@ -1,6 +1,5 @@
 export class User {
-    userName: string;
-    password: string;
-    email: string;
-    vcode: string;
+    password?: string;
+    email?: string;
+    userName?: string;
 }

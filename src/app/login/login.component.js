@@ -13,24 +13,22 @@ var forms_1 = require('@angular/forms');
 var cookies_service_1 = require('angular2-cookie/services/cookies.service');
 var ng2_translate_1 = require('ng2-translate');
 var loginService_1 = require('../services/loginService');
+var userService_1 = require('../services/userService');
 require('rxjs/add/observable/of');
 var Observable_1 = require('rxjs/Observable');
 var user_1 = require('../model/user');
 var LoginComponent = (function () {
-    function LoginComponent(fb, translate, cookie, login) {
+    function LoginComponent(fb, translate, cookie, loginService, userService) {
         var _this = this;
         this.fb = fb;
         this.translate = translate;
         this.cookie = cookie;
-        this.login = login;
+        this.loginService = loginService;
+        this.userService = userService;
         this.currentLang = 'zh-cn';
         this.toyear = new Date().getFullYear();
         this.user = new user_1.User();
-        this.emails = [
-            { email: '344913393@qq.com' },
-            { email: 'leedan1130@163.com' },
-            { email: 'leehuohuo@yeah.com' }
-        ];
+        this.users = [];
         this.formErrors = {
             'email': '',
             'password': '',
@@ -54,6 +52,9 @@ var LoginComponent = (function () {
                     'minlength': res['lengthOfPasswordAtLest8']
                 },
             };
+        });
+        this.userService.getUserList().subscribe(function (data) {
+            data.map(function (d) { return _this.users.push({ email: d }); });
         });
     }
     LoginComponent.prototype.ngOnInit = function () {
@@ -104,10 +105,11 @@ var LoginComponent = (function () {
         }
     };
     LoginComponent.prototype.onSubmit = function () {
+        var _this = this;
         this.onValueChanged();
         if (this.loginForm.valid) {
-            this.login.login(this.user, function () {
-                alert(1);
+            this.loginService.login(this.user).subscribe(function (data) {
+                _this.loginFail = !(_this.loginSuccess = data);
             });
         } // {first: 'Nancy', last: 'Drew'}
         else {
@@ -116,7 +118,7 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.getStatesAsObservable = function (token) {
         var query = new RegExp(token, 'ig');
-        return Observable_1.Observable.of(this.emails.filter(function (state) {
+        return Observable_1.Observable.of(this.users.filter(function (state) {
             return query.test(state.email);
         }));
     };
@@ -136,7 +138,7 @@ var LoginComponent = (function () {
             moduleId: module.id,
             styleUrls: ['./login.component.css']
         }), 
-        __metadata('design:paramtypes', [forms_1.FormBuilder, ng2_translate_1.TranslateService, cookies_service_1.CookieService, loginService_1.LoginService])
+        __metadata('design:paramtypes', [forms_1.FormBuilder, ng2_translate_1.TranslateService, cookies_service_1.CookieService, loginService_1.LoginService, userService_1.UserService])
     ], LoginComponent);
     return LoginComponent;
 }());

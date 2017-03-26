@@ -15,10 +15,15 @@ require('rxjs/add/operator/catch');
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
-        this.userListUrl = "src/data/user.json";
+        this.userListUrl = "http://api.mg.local/api/user/GetEmailList";
     }
-    UserService.prototype.getUserList = function (postId) {
-        return this.http.get(this.userListUrl)
+    UserService.prototype.getUserList = function () {
+        var headers = new http_1.Headers();
+        headers.append("Accept", "application/json");
+        var params = new http_1.URLSearchParams();
+        //params.set('myParam', 'myValue');
+        var options = new http_1.RequestOptions({ headers: headers, search: params, responseType: http_1.ResponseContentType.Json });
+        return this.http.get(this.userListUrl, options)
             .map(function (res) { return res.json(); });
     };
     UserService = __decorate([

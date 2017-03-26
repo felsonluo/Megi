@@ -9,18 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var navigatorService_1 = require('../services/navigatorService');
+require('rxjs/add/observable/of');
 var GoComponent = (function () {
-    function GoComponent() {
+    function GoComponent(navigatorService) {
+        this.navigatorService = navigatorService;
     }
     GoComponent.prototype.ngOnInit = function () {
+        this.navigatorService.getNavigatorList().subscribe(function (data) {
+            data.map(function (x) {
+                console.log(x);
+            });
+        });
     };
     GoComponent = __decorate([
         core_1.Component({
-            selector: 'app-go',
+            selector: 'my-app',
             templateUrl: './go.component.html',
-            styleUrls: ['./go.component.scss']
+            styleUrls: ['./go.component.css'],
+            moduleId: module.id,
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [navigatorService_1.NavigatorService])
     ], GoComponent);
     return GoComponent;
 }());

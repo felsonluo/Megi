@@ -1,4 +1,4 @@
-<form [formGroup]='loginForm' (ngSubmit)='onSubmit()' style="height: 100%" role="form" novalidate>
+<form [formGroup]='loginForm' (ngSubmit)='onSubmit()' style="height: 100%;overflow: hidden;" role="form" novalidate>
     <div class='mg-main mg-login-bg'>
         <div class='mg-login-box'>
             <div class="mg-logo">
@@ -27,6 +27,14 @@
                 <div style="float: right"><a href="/Password/ForgetPwd ">{{'login.forgotPassword' | translate}}</a></div>
 
                 <button type="submit" [disabled]="loginForm.invalid" class="btn mg-login-button " btnCheckbox btnCheckboxTrue="1 " btnCheckboxFalse="0 ">{{'login.login' | translate}}</button>
+
+                <alert *ngIf='loginSuccess === true' type="success" dismissOnTimeout=3000 style="position: absolute; width: 325px;">
+                    {{ 'login.loginSuccess' | translate}}
+                </alert>
+
+                <alert *ngIf='loginFail === true' type="danger" dismissOnTimeout=3000 style="position: absolute; width: 325px;">
+                    {{ 'login.loginFail' | translate}}
+                </alert>
 
                 <div style=" width: 345px;text-align: center;margin-top: 50px; "><a href="/Password/ForgetPwd ">{{'login.haveNoAccount' | translate}}</a></div>
 

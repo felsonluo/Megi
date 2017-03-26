@@ -1,7 +1,7 @@
 "use strict";
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
-var login_module_1 = require('./login/login.module');
-platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(login_module_1.LoginModule);
-// import { MyModule } from './my/my.module';
-// platformBrowserDynamic().bootstrapModule(MyModule);
+// import { LoginModule } from './login/login.module';
+// platformBrowserDynamic().bootstrapModule(LoginModule);
+var go_module_1 = require('./go/go.module');
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(go_module_1.GoModule);
 //# sourceMappingURL=main.js.map

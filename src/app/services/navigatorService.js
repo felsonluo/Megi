@@ -9,43 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var Subject_1 = require('rxjs/Subject');
 var http_1 = require('@angular/http');
-var LoginService = (function () {
-    function LoginService(http) {
+require('rxjs/add/operator/map');
+require('rxjs/add/operator/catch');
+var NavigatorService = (function () {
+    function NavigatorService(http) {
         this.http = http;
-        this.userLoginURL = 'http://api.mg.local/api/User/Login';
-        this.subject = new Subject_1.Subject();
+        this.navigatorListUrl = "http://api.mg.local/api/navigator/GetNavigator";
     }
-    Object.defineProperty(LoginService.prototype, "currentUser", {
-        get: function () {
-            return this.subject.asObservable();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    LoginService.prototype.login = function (u) {
+    NavigatorService.prototype.getNavigatorList = function () {
         var headers = new http_1.Headers();
         headers.append("Accept", "application/json");
         var params = new http_1.URLSearchParams();
-        params.set('email', u.email);
-        params.set('password', u.password);
-        params.set('Email', u.email);
-        params.set('Password', u.password);
         var options = new http_1.RequestOptions({ headers: headers, search: params, responseType: http_1.ResponseContentType.Json });
-        return this.http
-            .get(this.userLoginURL, options)
+        return this.http.get(this.navigatorListUrl, options)
             .map(function (res) { return res.json(); });
     };
-    LoginService.prototype.logout = function () {
-        localStorage.removeItem("currentUser");
-        this.subject.next(Object.assign({}));
-    };
-    LoginService = __decorate([
+    NavigatorService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], LoginService);
-    return LoginService;
+    ], NavigatorService);
+    return NavigatorService;
 }());
-exports.LoginService = LoginService;
-//# sourceMappingURL=loginService.js.map
+exports.NavigatorService = NavigatorService;
+//# sourceMappingURL=navigatorService.js.map

@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, Input } from '@angular/core';
+import { ActivatedRoute, Router, ActivatedRouteSnapshot, RouterState, RouterStateSnapshot } from '@angular/router';
 
 import { FormBuilder, FormGroup, FormControl, Validators, ControlContainer } from '@angular/forms';
 
@@ -7,10 +8,11 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { TranslateService } from 'ng2-translate';
 
 import { LoginService } from '../services/loginService';
+import { UserService } from '../services/userService';
 
 import 'rxjs/add/observable/of';
 import { Observable } from 'rxjs/Observable';
-import { TypeaheadMatch } from 'ng2-bootstrap';
+import { TypeaheadMatch, AlertModule } from 'ng2-bootstrap';
 import { User } from '../model/user';
 
 @Component({
@@ -33,11 +35,11 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   public user: User = new User();
 
-  public emails: any[] = [
-    { email: '344913393@qq.com' },
-    { email: 'leedan1130@163.com' },
-    { email: 'leehuohuo@yeah.com' }
-  ];
+  public users: User[] = [];
+
+  public loginSuccess: boolean;
+
+  public loginFail: boolean;
 
   public formErrors = {
     'email': '',
@@ -50,7 +52,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
     public fb: FormBuilder,
     public translate: TranslateService,
     public cookie: CookieService,
-    public login: LoginService) {
+    public loginService: LoginService,
+    public userService: UserService) {
 
     this.translate.addLangs(["zh-cn", "zh-hk", "en"]);
     this.translate.setDefaultLang('zh-cn');
@@ -76,6 +79,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
           'minlength': res['lengthOfPasswordAtLest8']
         },
       };
+    });
+
+    this.userService.getUserList().subscribe(data => {
+      data.map(d => this.users.push({ email: d }));
     });
   }
 
@@ -117,6 +124,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   onValueChanged(data?: any) {
 
+
     if (!this.loginForm) return;
 
     const form = this.loginForm;
@@ -142,9 +150,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
     if (this.loginForm.valid) {
 
-      this.login.login(this.user, () => {
+      this.loginService.login(this.user).subscribe(data => {
 
-          alert(1);
+        this.loginFail = !(this.loginSuccess = data);
       });
     } // {first: 'Nancy', last: 'Drew'}
     else {
@@ -156,7 +164,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     let query = new RegExp(token, 'ig');
 
     return Observable.of(
-      this.emails.filter((state: any) => {
+      this.users.filter((state: any) => {
         return query.test(state.email);
       })
     );

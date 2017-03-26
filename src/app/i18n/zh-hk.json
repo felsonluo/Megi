@@ -15,6 +15,8 @@
         "emailRequired": "邮箱为必填项.",
         "passwordRequired": "密码为必填项.",
         "emailFormatError": "邮箱地址格式错误.",
-        "lengthOfPasswordAtLest8": "密码长度至少是8位."
+        "lengthOfPasswordAtLest8": "密码长度至少是8位.",
+        "loginSuccess": "登陆成功!",
+        "loginFail": "登陆失败，请检查你的邮箱和密码!"
     }
 }

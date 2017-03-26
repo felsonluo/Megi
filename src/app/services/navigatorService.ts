@@ -5,24 +5,23 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import { User } from '../model/user';
+import { Navigator } from '../model/navigator';
 
 @Injectable()
-export class UserService {
+export class NavigatorService {
 
-    public userListUrl = "http://api.mg.local/api/user/GetEmailList";
+    public navigatorListUrl = "http://api.mg.local/api/navigator/GetNavigator";
 
     constructor(public http: Http) { }
 
-    public getUserList(): Observable<string[]> {
+    public getNavigatorList(): Observable<Navigator[]> {
 
         let headers = new Headers();
         headers.append("Accept", "application/json");
         let params = new URLSearchParams();
-        //params.set('myParam', 'myValue');
         let options = new RequestOptions({ headers: headers, search: params, responseType: ResponseContentType.Json });
 
-        return this.http.get(this.userListUrl, options)
+        return this.http.get(this.navigatorListUrl, options)
             .map((res: Response) => res.json())
     }
 }

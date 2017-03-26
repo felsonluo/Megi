@@ -9,17 +9,45 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
+var http_1 = require('@angular/http');
+var platform_browser_1 = require('@angular/platform-browser');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
+var ng2_bootstrap_1 = require('ng2-bootstrap');
+var ng2_translate_1 = require('ng2-translate');
+//import { RouterModule } from '@angular/router';
+var navigatorService_1 = require('../services/navigatorService');
 var go_component_1 = require('./go.component');
+//import { GoRoutes } from "./go.routers";
+function createTranslateLoader(http) {
+    return new ng2_translate_1.TranslateStaticLoader(http, './src/app/i18n', '.json');
+}
+exports.createTranslateLoader = createTranslateLoader;
 var GoModule = (function () {
     function GoModule() {
     }
     GoModule = __decorate([
         core_1.NgModule({
             imports: [
-                common_1.CommonModule
+                platform_browser_1.BrowserModule,
+                forms_1.FormsModule,
+                router_1.RouterModule,
+                forms_1.ReactiveFormsModule,
+                ng2_translate_1.TranslateModule.forRoot({
+                    provide: ng2_translate_1.TranslateLoader,
+                    useFactory: (createTranslateLoader),
+                    deps: [http_1.Http]
+                }),
+                http_1.HttpModule,
+                http_1.JsonpModule,
+                ng2_bootstrap_1.ButtonsModule.forRoot(),
+                ng2_bootstrap_1.TypeaheadModule.forRoot(),
+                ng2_bootstrap_1.TabsModule.forRoot(),
+                ng2_bootstrap_1.AlertModule.forRoot()
             ],
-            declarations: [go_component_1.GoComponent]
+            declarations: [go_component_1.GoComponent],
+            providers: [forms_1.ControlContainer, navigatorService_1.NavigatorService],
+            bootstrap: [go_component_1.GoComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], GoModule);

@@ -12,11 +12,13 @@ var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var ng2_bootstrap_1 = require('ng2-bootstrap');
 var ng2_translate_1 = require('ng2-translate');
 var login_component_1 = require('./login.component');
 var cookies_service_1 = require('angular2-cookie/services/cookies.service');
 var loginService_1 = require('../services/loginService');
+var userService_1 = require('../services/userService');
 function createTranslateLoader(http) {
     return new ng2_translate_1.TranslateStaticLoader(http, './src/app/i18n', '.json');
 }
@@ -29,6 +31,7 @@ var LoginModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
+                router_1.RouterModule,
                 forms_1.ReactiveFormsModule,
                 ng2_translate_1.TranslateModule.forRoot({
                     provide: ng2_translate_1.TranslateLoader,
@@ -38,13 +41,14 @@ var LoginModule = (function () {
                 http_1.HttpModule,
                 http_1.JsonpModule,
                 ng2_bootstrap_1.ButtonsModule.forRoot(),
-                ng2_bootstrap_1.TypeaheadModule.forRoot()
+                ng2_bootstrap_1.TypeaheadModule.forRoot(),
+                ng2_bootstrap_1.AlertModule.forRoot()
             ],
             declarations: [
                 login_component_1.LoginComponent,
             ],
             bootstrap: [login_component_1.LoginComponent],
-            providers: [forms_1.ControlContainer, cookies_service_1.CookieService, loginService_1.LoginService]
+            providers: [forms_1.ControlContainer, cookies_service_1.CookieService, loginService_1.LoginService, userService_1.UserService]
         }), 
         __metadata('design:paramtypes', [])
     ], LoginModule);
