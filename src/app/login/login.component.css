@@ -13,7 +13,7 @@
     margin: auto;
     background-image: url(./src/app/images/i-login.png);
     font-size: 13px;
-    width: 345px;
+    width: 325px;
     height: 40px;
     background-color: #fff;
     background-repeat: no-repeat;
@@ -39,13 +39,15 @@
 
 .mg-login-box {
     float: left;
-    max-width: 365px;
+    max-width: 345px;
     padding: 0 10px;
     border-radius: 3px;
-    margin-top: calc((100vh - 500px) * 0.68 + 1px);
-    margin-left: calc((100% - 345px) /2);
-    -moz-margin-left: calc((100% - 345px) /2);
-    -webkit-margin-left: calc((100% - 345px) /2);
+    margin-top: calc((100vh - 520px) * 0.68 + 45px);
+    -moz-margin-top: calc((100vh - 520px) * 0.68 + 45px);
+    -webkit-margin-top: calc((100vh - 520px) * 0.68 + 45px);
+    margin-left: calc((100% - 325px) /2);
+    -moz-margin-left: calc((100% - 325px) /2);
+    -webkit-margin-left: calc((100% - 325px) /2);
 }
 
 .mg-login-input {
@@ -67,7 +69,7 @@
     color: #fff;
     font-size: 18px;
     padding: 6px 0;
-    width: 345px;
+    width: 325px;
     display: block;
     height: 43px;
     border-width: 0;
@@ -75,7 +77,7 @@
     background: linear-gradient(#469ee4, #449be0) repeat scroll 0 0 rgba(0, 0, 0, 0);
     border-color: #0193bf;
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3) inset;
-    margin-top: 20px;
+    margin-top: 40px;
     font-weight: bold;
     border-radius: 3px;
     text-align: center;
@@ -101,9 +103,13 @@
 
 .mg-login-footer .copy a {
     color: #333132;
-    padding: 0 10px 0 5px;
+    padding: 0 5px 0 5px;
 }
 
 .mg-login-footer .copy {
     text-align: center;
+}
+
+.text-danger {
+    position: absolute;
 }

@@ -2,7 +2,7 @@
  * System configuration for Angular samples
  * Adjust as necessary for your application needs.
  */
-(function (global) {
+(function(global) {
     System.config({
         paths: {
             // paths serve as alias
@@ -23,6 +23,8 @@
             '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
             'ng2-bootstrap': 'npm:ng2-bootstrap',
+            'ng2-translate': 'npm:ng2-translate',
+            'angular2-cookie': 'npm:angular2-cookie',
             // other libraries
             'rxjs': 'npm:rxjs',
             'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
@@ -40,6 +42,15 @@
                 main: 'bundles/ng2-bootstrap.umd.js',
                 defaultExtension: 'js'
             },
+            'ng2-translate': {
+                format: 'cjs',
+                main: 'bundles/ng2-translate.umd.js',
+                defaultExtension: 'js'
+            },
+            'angular2-cookie': {
+                main: './core.js',
+                defaultExtension: 'js'
+            }
         }
     });
 })(this);

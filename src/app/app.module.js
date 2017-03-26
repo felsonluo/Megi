@@ -19,7 +19,6 @@ var about_component_1 = require('./about/about.component');
 var assets_component_1 = require('./assets/assets.component');
 var user_component_1 = require('./user/user.component');
 var ng2_bootstrap_1 = require('ng2-bootstrap');
-var state_service_1 = require('./services/state.service');
 var app_routes_1 = require('./app.routes');
 var static_component_1 = require('./static/static.component');
 var AppModule = (function () {
@@ -44,7 +43,7 @@ var AppModule = (function () {
                 static_component_1.StaticComponent
             ],
             bootstrap: [app_component_1.AppComponent],
-            providers: [state_service_1.StateService]
+            providers: []
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

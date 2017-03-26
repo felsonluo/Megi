@@ -1,3 +1,6 @@
-<p>
-  my works!
-</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" role="form" novalidate>
+
+    <input formControlName="email" [(ngModel)]="user.email" required email placeholder="Email" placeholder="邮箱">
+    <input formControlName="password" [(ngModel)]="user.password" placeholder="Password">
+    <button type="button" (click)='onSubmit()'>Submit</button>
+</form>

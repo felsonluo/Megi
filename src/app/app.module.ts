@@ -13,8 +13,6 @@ import { UserComponent } from './user/user.component';
 
 import { DropdownModule } from 'ng2-bootstrap'
 
-import { StateService } from './services/state.service';
-
 import appRoutes from './app.routes';
 import { StaticComponent } from './static/static.component';
 
@@ -37,6 +35,6 @@ import { StaticComponent } from './static/static.component';
     StaticComponent
   ],
   bootstrap: [AppComponent],
-  providers: [StateService]
+  providers: []
 })
 export class AppModule { }

@@ -9,7 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
+var platform_browser_1 = require('@angular/platform-browser');
+var forms_1 = require('@angular/forms');
+var ng2_bootstrap_1 = require('ng2-bootstrap');
 var my_component_1 = require('./my.component');
 var MyModule = (function () {
     function MyModule() {
@@ -17,9 +19,15 @@ var MyModule = (function () {
     MyModule = __decorate([
         core_1.NgModule({
             imports: [
-                common_1.CommonModule
+                platform_browser_1.BrowserModule,
+                forms_1.FormsModule,
+                forms_1.ReactiveFormsModule,
+                ng2_bootstrap_1.ButtonsModule.forRoot(),
+                ng2_bootstrap_1.TypeaheadModule.forRoot()
             ],
-            declarations: [my_component_1.MyComponent]
+            declarations: [my_component_1.MyComponent],
+            bootstrap: [my_component_1.MyComponent],
+            providers: [forms_1.ControlContainer]
         }), 
         __metadata('design:paramtypes', [])
     ], MyModule);
