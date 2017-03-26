@@ -1,0 +1,20 @@
+{
+    "login": {
+        "welcome": "Welcome to Megi",
+        "changeLang": "Change Language",
+        "email": "Email",
+        "password": "Password",
+        "forgotPassword": "Forgot the password ?",
+        "login": "Login",
+        "haveNoAccount": "Don't have account?",
+        "freeTrial": "Free Trial",
+        "contactUs": "Contact US",
+        "termOfUse": "Term Of Use",
+        "privacy": "Privacy",
+        "copyright": "Copyright © ",
+        "emailRequired": "Email is required.",
+        "passwordRequired": "Password is required.",
+        "emailFormatError": "Email address format error.",
+        "lengthOfPasswordAtLest8": "Length of password at least 8."
+    }
+}

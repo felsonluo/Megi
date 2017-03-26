@@ -1,0 +1,20 @@
+{
+    "login": {
+        "welcome": "欢迎来到美记",
+        "changeLang": "切换语言",
+        "email": "邮箱",
+        "password": "密码",
+        "forgotPassword": "忘记密码?",
+        "login": "登录",
+        "haveNoAccount": "没有账户?",
+        "freeTrial": "免费试用",
+        "contactUs": "联系我们",
+        "termOfUse": "使用期限",
+        "privacy": "隐私",
+        "copyright": "版权 © ",
+        "emailRequired": "邮箱为必填项.",
+        "passwordRequired": "密码为必填项.",
+        "emailFormatError": "邮箱地址格式错误.",
+        "lengthOfPasswordAtLest8": "密码长度至少是8位."
+    }
+}
