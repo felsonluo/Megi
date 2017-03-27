@@ -18,6 +18,7 @@ var ng2_translate_1 = require('ng2-translate');
 //import { RouterModule } from '@angular/router';
 var navigatorService_1 = require('../services/navigatorService');
 var go_component_1 = require('./go.component');
+var nav_component_1 = require('./nav/nav.component');
 //import { GoRoutes } from "./go.routers";
 function createTranslateLoader(http) {
     return new ng2_translate_1.TranslateStaticLoader(http, './src/app/i18n', '.json');
@@ -43,9 +44,10 @@ var GoModule = (function () {
                 ng2_bootstrap_1.ButtonsModule.forRoot(),
                 ng2_bootstrap_1.TypeaheadModule.forRoot(),
                 ng2_bootstrap_1.TabsModule.forRoot(),
-                ng2_bootstrap_1.AlertModule.forRoot()
+                ng2_bootstrap_1.AlertModule.forRoot(),
+                ng2_bootstrap_1.PopoverModule.forRoot()
             ],
-            declarations: [go_component_1.GoComponent],
+            declarations: [go_component_1.GoComponent, nav_component_1.NavComponent],
             providers: [forms_1.ControlContainer, navigatorService_1.NavigatorService],
             bootstrap: [go_component_1.GoComponent]
         }), 

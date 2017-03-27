@@ -114,29 +114,33 @@
             <div class="mg-left">
                 <ul class="mg-nav-top">
                     <li class="mg-nav-item">
-                        <a href="###" class="item-link mg-nav-dashboard" data-index="0">&nbsp;</a>
+                        <a href="###" class="item-link mg-nav-dashboard">&nbsp;</a>
                     </li>
-                    <li class="mg-nav-item">
-                        <a href="###" class="item-link mg-nav-account" data-index="0">&nbsp;</a>
+                    <li class=" mg-nav-item ">
+                        <a href="### " class="item-link mg-nav-account " [popover]="navTemplate" placement="right">&nbsp;</a>
                     </li>
-                    <li class="mg-nav-item">
-                        <a href="###" class="item-link mg-nav-report" data-index="0">&nbsp;</a>
+                    <li class="mg-nav-item ">
+                        <a href="### " class="item-link mg-nav-report " data-index="0 ">&nbsp;</a>
                     </li>
-                    <li class="mg-nav-item">
-                        <a href="###" class="item-link mg-nav-folder" data-index="0">&nbsp;</a>
+                    <li class="mg-nav-item ">
+                        <a href="### " class="item-link mg-nav-folder " data-index="0 ">&nbsp;</a>
                     </li>
                 </ul>
-                <ul class="mg-nav-bottom">
-                    <li class="mg-nav-item">
-                        <a href="###" class="item-link mg-nav-setting" data-index="0">&nbsp;</a>
+                <ul class="mg-nav-bottom ">
+                    <li class="mg-nav-item ">
+                        <a href="### " class="item-link mg-nav-setting " data-index="0 ">&nbsp;</a>
                     </li>
                 </ul>
             </div>
-            <div class="mg-right">
-                <div class="mg-frame">
+            <div class="mg-right ">
+                <div class="mg-frame ">
 
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<template #navTemplate>
+    <mg-nav></mg-nav>
+</template>

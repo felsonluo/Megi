@@ -13,6 +13,8 @@ import 'rxjs/add/observable/of';
 import { Observable } from 'rxjs/Observable';
 import { TypeaheadMatch, AlertModule, TabsetComponent } from 'ng2-bootstrap';
 
+import{NavComponent} from './nav/nav.component';
+
 import { User } from '../model/user';
 import { Navigator } from '../model/navigator';
 

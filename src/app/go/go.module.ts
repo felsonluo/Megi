@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { HttpModule, JsonpModule, Http } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ControlContainer, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 
-import { TypeaheadModule, ButtonsModule, AlertModule, TabsModule } from 'ng2-bootstrap';
+import { TypeaheadModule, ButtonsModule, AlertModule, TabsModule, PopoverModule } from 'ng2-bootstrap';
 
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
 
@@ -14,6 +14,7 @@ import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-tra
 import { NavigatorService } from '../services/navigatorService';
 
 import { GoComponent } from './go.component';
+import { NavComponent } from './nav/nav.component';
 //import { GoRoutes } from "./go.routers";
 
 export function createTranslateLoader(http: Http) {
@@ -36,10 +37,11 @@ export function createTranslateLoader(http: Http) {
     ButtonsModule.forRoot(),
     TypeaheadModule.forRoot(),
     TabsModule.forRoot(),
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    PopoverModule.forRoot()
     // RouterModule.forChild(GoRoutes)
   ],
-  declarations: [GoComponent],
+  declarations: [GoComponent, NavComponent],
   providers: [ControlContainer, NavigatorService],
   bootstrap: [GoComponent]
 })
