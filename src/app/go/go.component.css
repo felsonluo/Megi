@@ -137,3 +137,8 @@ li.mg-nav-item :hover {
     -webkit-margin-top: calc(100vh - 350px);
     -moz-margin-top: calc(100vh - 350px);
 }
+
+.mg-nav-active {
+    background-image: url(./src/app/images/nav-current.png);
+    background-repeat: repeat-y;
+}

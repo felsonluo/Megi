@@ -111,13 +111,16 @@
     </div>
     <div class="mg-bottom">
         <div>
+            <template #navTemplate>
+                <mg-nav></mg-nav>
+            </template>
             <div class="mg-left">
                 <ul class="mg-nav-top">
                     <li class="mg-nav-item">
                         <a href="###" class="item-link mg-nav-dashboard">&nbsp;</a>
                     </li>
-                    <li class=" mg-nav-item ">
-                        <a href="### " class="item-link mg-nav-account " [popover]="navTemplate" placement="right">&nbsp;</a>
+                    <li class=" mg-nav-item " [ngClass]="{'mg-nav-active': navTemplate.isOpen}">
+                        <a href="### " class="item-link mg-nav-account " [popover]="navTemplate" placement="right" triggers="focus" container="mgBottom"> &nbsp;</a>
                     </li>
                     <li class="mg-nav-item ">
                         <a href="### " class="item-link mg-nav-report " data-index="0 ">&nbsp;</a>
@@ -140,7 +143,3 @@
         </div>
     </div>
 </div>
-
-<template #navTemplate>
-    <mg-nav></mg-nav>
-</template>

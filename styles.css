@@ -174,3 +174,8 @@ li.nav-item {
 .mg-tab .mg-refresh:hover {
     background-image: url(./src/app/images/tab-refresh-hover.png);
 }
+
+.mg-left .popover {
+    min-width: 100px;
+    border-radius: 5px;
+}
