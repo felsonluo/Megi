@@ -11,9 +11,9 @@ import { NavigatorService } from '../services/navigatorService';
 
 import 'rxjs/add/observable/of';
 import { Observable } from 'rxjs/Observable';
-import { TypeaheadMatch, AlertModule, TabsetComponent } from 'ng2-bootstrap';
+import { TypeaheadMatch, AlertModule, TabsetComponent, PopoverDirective } from 'ng2-bootstrap';
 
-import{NavComponent} from './nav/nav.component';
+import { NavComponent } from './nav/nav.component';
 
 import { User } from '../model/user';
 import { Navigator } from '../model/navigator';
@@ -22,15 +22,19 @@ import { Navigator } from '../model/navigator';
   selector: 'my-app',
   templateUrl: './go.component.html',
   styleUrls: ['./go.component.css'],
-  moduleId: module.id,
+  moduleId: module.id
 })
 export class GoComponent implements OnInit {
+
+
+  @ViewChild(PopoverDirective) popover: PopoverDirective;
 
   constructor(
     public navigatorService: NavigatorService
   ) {
 
   }
+
 
   ngOnInit() {
 

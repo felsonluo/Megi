@@ -108,7 +108,7 @@ li.mg-nav-item {
     -webkit-padding-start: 0px;
 }
 
-li.mg-nav-item :hover {
+li.mg-nav-item:not(.mg-nav-active) a:hover {
     background-color: #323f4f;
 }
 
@@ -130,6 +130,26 @@ li.mg-nav-item :hover {
 
 .mg-nav-item .mg-nav-setting {
     background-image: url(./src/app/images/nav-setting.png);
+}
+
+.mg-nav-item .mg-nav-dashboard:hover {
+    background-image: url(./src/app/images/nav-dashboard-hover.png);
+}
+
+.mg-nav-item .mg-nav-account:hover {
+    background-image: url(./src/app/images/nav-account-hover.png);
+}
+
+.mg-nav-item .mg-nav-report:hover {
+    background-image: url(./src/app/images/nav-report-hover.png);
+}
+
+.mg-nav-item .mg-nav-folder:hover {
+    background-image: url(./src/app/images/nav-folder-hover.png);
+}
+
+.mg-nav-item .mg-nav-setting:hover {
+    background-image: url(./src/app/images/nav-setting-hover.png);
 }
 
 .mg-nav-bottom {

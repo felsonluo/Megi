@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var navigatorService_1 = require('../services/navigatorService');
 require('rxjs/add/observable/of');
+var ng2_bootstrap_1 = require('ng2-bootstrap');
 var GoComponent = (function () {
     function GoComponent(navigatorService) {
         this.navigatorService = navigatorService;
@@ -22,12 +23,16 @@ var GoComponent = (function () {
             });
         });
     };
+    __decorate([
+        core_1.ViewChild(ng2_bootstrap_1.PopoverDirective), 
+        __metadata('design:type', ng2_bootstrap_1.PopoverDirective)
+    ], GoComponent.prototype, "popover", void 0);
     GoComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
             templateUrl: './go.component.html',
             styleUrls: ['./go.component.css'],
-            moduleId: module.id,
+            moduleId: module.id
         }), 
         __metadata('design:paramtypes', [navigatorService_1.NavigatorService])
     ], GoComponent);
