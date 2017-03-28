@@ -9,20 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.name = 'Angular 2';
+var common_1 = require('@angular/common');
+var org_list_component_1 = require('./org-list.component');
+var OrgListModule = (function () {
+    function OrgListModule() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app.component.html',
-            styleUrls: ['app.component.css'],
-            moduleId: module.id
+    OrgListModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule
+            ],
+            declarations: [org_list_component_1.OrgListComponent],
+            bootstrap: [org_list_component_1.OrgListComponent]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], OrgListModule);
+    return OrgListModule;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.OrgListModule = OrgListModule;
+//# sourceMappingURL=org-list.module.js.map

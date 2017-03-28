@@ -5,6 +5,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 // platformBrowserDynamic().bootstrapModule(LoginModule);
 
 
-import { GoModule } from './go/go.module';
+//import { GoModule } from './go/go.module';
 
-platformBrowserDynamic().bootstrapModule(GoModule);
+import { MyModule } from './my/my.module';
+
+platformBrowserDynamic().bootstrapModule(MyModule);

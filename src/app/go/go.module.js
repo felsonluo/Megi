@@ -49,7 +49,8 @@ var GoModule = (function () {
             ],
             declarations: [go_component_1.GoComponent, nav_component_1.NavComponent],
             providers: [forms_1.ControlContainer, navigatorService_1.NavigatorService],
-            bootstrap: [go_component_1.GoComponent]
+            bootstrap: [go_component_1.GoComponent],
+            schemas: []
         }), 
         __metadata('design:paramtypes', [])
     ], GoModule);

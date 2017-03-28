@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { HttpModule, JsonpModule, Http } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ControlContainer, ReactiveFormsModule } from '@angular/forms';
@@ -43,6 +43,7 @@ export function createTranslateLoader(http: Http) {
   ],
   declarations: [GoComponent, NavComponent],
   providers: [ControlContainer, NavigatorService],
-  bootstrap: [GoComponent]
+  bootstrap: [GoComponent],
+  schemas:[]
 })
 export class GoModule { }

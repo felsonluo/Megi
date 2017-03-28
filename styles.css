@@ -141,9 +141,6 @@ li.nav-item {
     color: #3c4b5d;
 }
 
-.mg-tab ul li:last-child {
-    width: 78px;
-}
 
 .mg-tab li.active .mg-tab-inner {
     background-image: url(./src/app/images/main-tab-bg-current.png) !important;
