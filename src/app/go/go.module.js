@@ -13,13 +13,14 @@ var http_1 = require('@angular/http');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var router_1 = require('@angular/router');
+var primeng_1 = require('primeng/primeng');
 var ng2_bootstrap_1 = require('ng2-bootstrap');
 var ng2_translate_1 = require('ng2-translate');
-//import { RouterModule } from '@angular/router';
 var navigatorService_1 = require('../services/navigatorService');
 var go_component_1 = require('./go.component');
 var nav_component_1 = require('./nav/nav.component');
-//import { GoRoutes } from "./go.routers";
+var dashboard_component_1 = require('./dashboard/dashboard.component');
+var go_routers_1 = require("./go.routers");
 function createTranslateLoader(http) {
     return new ng2_translate_1.TranslateStaticLoader(http, './src/app/i18n', '.json');
 }
@@ -41,13 +42,16 @@ var GoModule = (function () {
                 }),
                 http_1.HttpModule,
                 http_1.JsonpModule,
+                primeng_1.ChartModule,
+                primeng_1.PanelModule,
                 ng2_bootstrap_1.ButtonsModule.forRoot(),
                 ng2_bootstrap_1.TypeaheadModule.forRoot(),
                 ng2_bootstrap_1.TabsModule.forRoot(),
                 ng2_bootstrap_1.AlertModule.forRoot(),
-                ng2_bootstrap_1.PopoverModule.forRoot()
+                ng2_bootstrap_1.PopoverModule.forRoot(),
+                router_1.RouterModule.forRoot(go_routers_1.GoRoutes)
             ],
-            declarations: [go_component_1.GoComponent, nav_component_1.NavComponent],
+            declarations: [go_component_1.GoComponent, nav_component_1.NavComponent, dashboard_component_1.DashboardComponent],
             providers: [forms_1.ControlContainer, navigatorService_1.NavigatorService],
             bootstrap: [go_component_1.GoComponent],
             schemas: []

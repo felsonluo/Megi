@@ -1,21 +1,21 @@
-import { NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { HttpModule, JsonpModule, Http } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ControlContainer, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
+import { ChartModule,PanelModule } from 'primeng/primeng';
 
 import { TypeaheadModule, ButtonsModule, AlertModule, TabsModule, PopoverModule } from 'ng2-bootstrap';
 
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
-
-//import { RouterModule } from '@angular/router';
 
 
 import { NavigatorService } from '../services/navigatorService';
 
 import { GoComponent } from './go.component';
 import { NavComponent } from './nav/nav.component';
-//import { GoRoutes } from "./go.routers";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { GoRoutes } from "./go.routers";
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './src/app/i18n', '.json');
@@ -34,16 +34,18 @@ export function createTranslateLoader(http: Http) {
     }),
     HttpModule,
     JsonpModule,
+    ChartModule,
+    PanelModule,
     ButtonsModule.forRoot(),
     TypeaheadModule.forRoot(),
     TabsModule.forRoot(),
     AlertModule.forRoot(),
-    PopoverModule.forRoot()
-    // RouterModule.forChild(GoRoutes)
+    PopoverModule.forRoot(),
+    RouterModule.forRoot(GoRoutes)
   ],
-  declarations: [GoComponent, NavComponent],
+  declarations: [GoComponent, NavComponent, DashboardComponent],
   providers: [ControlContainer, NavigatorService],
   bootstrap: [GoComponent],
-  schemas:[]
+  schemas: []
 })
 export class GoModule { }
