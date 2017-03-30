@@ -12,7 +12,7 @@
 
 .mg-dashboard-body {
     overflow-x: auto;
-    height: 438px;
+    height: calc(100vh - 145px)
 }
 
 .mg-bank-manage {
@@ -66,4 +66,20 @@
 .ui-panel-titlebar {
     background-color: rgb(248, 252, 255);
     border-bottom: 0px;
+}
+
+.ui-widget-header {
+    border: 0px;
+}
+
+.ui-panel-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-all {
+    background-color: #F8FCFF;
+}
+
+div.mg-bank-chart,
+div.mg-inovice-chart,
+div.mg-purchase-chart,
+div.mg-expense-chart {
+    height: 200px;
+    width: 45%;
 }

@@ -297,3 +297,7 @@ li.nav-item {
     min-width: 100px;
     border-radius: 5px;
 }
+
+.mg-frame {
+    height: 100%;
+}
