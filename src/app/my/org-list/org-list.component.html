@@ -1,4 +1,4 @@
-<div class="mg-ititle" style="height:60px;">
+<div class="mg-ititle" style="height:70px;margin-top: 20px;">
     <div class="content" style="padding-left:20px">
         <div class="title" style="width:500px;">
             <span class="mg-title-text" style="font-size: 30px;"> 我的美记</span>
@@ -17,18 +17,26 @@
         <a href="javascript:void(0)" class="m-data-list-current">&nbsp;</a>
     </div>
 </div>
-<div class="mg-organisation-list">
-    <p-dataTable [value]="organisationList" scrollable="true" scrollHeight="500px">
-        <p-column field="name" header="名称"></p-column>
-        <p-column field="version" header="版本"></p-column>
-        <p-column field="createDate" header="创建时间">
-            <template let-col let-org="rowData" pTemplate="body">
+<div class="mg-organisation-list" #organisationDiv style="height: 380px;padding-left:10px;">
+    <p-dataTable [value]="organisationList" scrollable="true" scrollHeight="{{organisationDiv.style.height + ''}} " [style]="{ 'width': '100%'} ">
+        <p-column field="name" header="名称 "></p-column>
+        <p-column field="version" header="版本 "></p-column>
+        <p-column field="createDate" header="创建时间 ">
+            <template let-col let-org="rowData" pTemplate="body ">
                 {{org.createDate | date}}
             </template>
         </p-column>
-        <p-column field="role" header="角色"></p-column>
-        <p-column field="lastVisitDate" header="最后访问日期"></p-column>
-        <p-column field="expireDate" header="到期日期"></p-column>
-        <p-column field="payStatus" header="付费状态"></p-column>
+        <p-column field="role" header="角色 "></p-column>
+        <p-column field="lastVisitDate" header="最后访问日期 "></p-column>
+        <p-column field="expireDate" header="到期日期 ">
+            <template let-col let-org="rowData" pTemplate="body ">
+                {{org.expireDate | date}}
+            </template>
+        </p-column>
+        <p-column field="payStatus" header="付费状态 ">
+            <template let-col let-org="rowData" pTemplate="body ">
+                {{org.payStatus == 0? '试用版' : '标准版'}}
+            </template>
+        </p-column>
     </p-dataTable>
 </div>

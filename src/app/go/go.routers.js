@@ -1,14 +1,17 @@
 "use strict";
-var go_component_1 = require('./go.component');
+var dashboard_component_1 = require('./dashboard/dashboard.component');
 exports.GoRoutes = [
     {
         path: '',
-        component: go_component_1.GoComponent,
-        children: [
-            { path: '', redirectTo: 'posttable/page/1', pathMatch: 'full' },
-            { path: 'write', component: go_component_1.GoComponent },
-            { path: '**', redirectTo: 'write' }
-        ]
+        component: dashboard_component_1.DashboardComponent
+    },
+    {
+        path: 'dashboard',
+        component: dashboard_component_1.DashboardComponent
+    },
+    {
+        path: '**',
+        loadChildren: './home/home.module#HomeModule'
     }
 ];
 //# sourceMappingURL=go.routers.js.map
