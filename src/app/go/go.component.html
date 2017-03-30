@@ -3,11 +3,10 @@
     <div class="mg-top">
 
         <div class="mg-org"><a href="###">Demo Company</a></div>
-
         <div class="mg-action">
             <a class="mg-search" href="###" title="搜索" tipid="Fiu60FhiVW">&nbsp;</a>
-            <a class="mg-help" href="###" id="megiFeedback" onclick="MegiTrack.MixPanel.track('Clicked for Help'); MegiTrack.Intercom.track('Clicked Help');" title="帮助">&nbsp;</a>
-            <a class="mg-attachment" id="aAttachment" href="###" onclick="$.mTab.addOrUpdate('附件', '/BD/Docs/Folders', true);" title="附件">&nbsp;</a>
+            <a class="mg-help" href="###" id="megiFeedback" title="帮助">&nbsp;</a>
+            <a class="mg-attachment" id="aAttachment" href="###" title="附件">&nbsp;</a>
             <a class="mg-user" href="###" title="用户">&nbsp;</a>
             <div *ngIf='1==2' id="divUserInfo" class="m-user-info">
                 <b class="popup-arrow popup-arrow-notch"></b>
@@ -31,112 +30,108 @@
             </div>
         </div>
 
-
-    </div>
-    <div class="mg-tab">
-        <tabset>
-            <tab>
-                <template tabHeading>
+        <div class="mg-tab">
+            <tabset>
+                <tab>
+                    <template tabHeading>
                     <span class="mg-tab-inner">
                         <a href="###"  class="mg-tab-item">仪表盘</a>
                         <a href="###" class="mg-refresh" > &nbsp;</a>
                             </span>
                 </template>
-            </tab>
-            <tab *ngIf='1== 0' removable="true">
-                <template tabHeading>
+                </tab>
+                <tab *ngIf='1== 0' removable="true">
+                    <template tabHeading>
                     <span class="mg-tab-inner">
                         <a href="###"  class="mg-tab-item"></a>
                             </span>
                 </template>
-            </tab>
-            <tab *ngIf='1== 0' removable="true">
-                <template tabHeading>
+                </tab>
+                <tab *ngIf='1== 0' removable="true">
+                    <template tabHeading>
                     <span class="mg-tab-inner">
                         <a href="###"  class="mg-tab-item"></a>
                             </span>
                 </template>
-            </tab>
-            <tab *ngIf='1== 0' removable="true">
-                <template tabHeading>
+                </tab>
+                <tab *ngIf='1== 0' removable="true">
+                    <template tabHeading>
                     <span class="mg-tab-inner">
                         <a href="###"  class="mg-tab-item"></a>
                             </span>
                 </template>
-            </tab>
-            <tab *ngIf='1== 0' removable="true">
-                <template tabHeading>
+                </tab>
+                <tab *ngIf='1== 0' removable="true">
+                    <template tabHeading>
                     <span class="mg-tab-inner">
                         <a href="###"  class="mg-tab-item"></a>
                             </span>
                 </template>
-            </tab>
-            <tab *ngIf='1== 0' removable="true">
-                <template tabHeading>
+                </tab>
+                <tab *ngIf='1== 0' removable="true">
+                    <template tabHeading>
                     <span class="mg-tab-inner">
                         <a href="###"  class="mg-tab-item"></a>
                             </span>
                 </template>
-            </tab>
-            <tab *ngIf='1== 0' removable="true">
-                <template tabHeading>
+                </tab>
+                <tab *ngIf='1== 0' removable="true">
+                    <template tabHeading>
                     <span class="mg-tab-inner">
                         <a href="###"  class="mg-tab-item"></a>
                             </span>
                 </template>
-            </tab>
-            <tab *ngIf='1== 0' removable="true">
-                <template tabHeading>
+                </tab>
+                <tab *ngIf='1== 0' removable="true">
+                    <template tabHeading>
                     <span class="mg-tab-inner">
                         <a href="###"  class="mg-tab-item"></a>
                             </span>
                 </template>
-            </tab>
-            <tab *ngIf='1== 0' removable="true">
-                <template tabHeading>
+                </tab>
+                <tab *ngIf='1== 0' removable="true">
+                    <template tabHeading>
                     <span class="mg-tab-inner">
                         <a href="###"  class="mg-tab-item"></a>
                             </span>
                 </template>
-            </tab>
-            <tab removable="true">
-                <template tabHeading>
+                </tab>
+                <tab removable="true">
+                    <template tabHeading>
                     <span class="mg-tab-inner stable">
                         <a href="###"  class="mg-tab-item">新增 +</a>
                             </span>
                 </template>
-            </tab>
-        </tabset>
-    </div>
-    <div class="mg-bottom">
-        <div>
-            <template #navTemplate>
-                <mg-nav></mg-nav>
-            </template>
-            <div class="mg-left">
-                <ul class="mg-nav-top">
-                    <li class="mg-nav-item">
-                        <a href="###" class="item-link mg-nav-dashboard">&nbsp;</a>
-                    </li>
-                    <li class=" mg-nav-item " [ngClass]="{'mg-nav-active': popover.isOpen}">
-                        <a href="### " class="item-link mg-nav-account " [popover]="navTemplate" placement="right" triggers="focus" container="mgBottom"> &nbsp;</a>
-                    </li>
-                    <li class="mg-nav-item ">
-                        <a href="### " class="item-link mg-nav-report " data-index="0 ">&nbsp;</a>
-                    </li>
-                    <li class="mg-nav-item ">
-                        <a href="### " class="item-link mg-nav-folder " data-index="0 ">&nbsp;</a>
-                    </li>
-                </ul>
-                <ul class="mg-nav-bottom ">
-                    <li class="mg-nav-item ">
-                        <a href="### " class="item-link mg-nav-setting " data-index="0 ">&nbsp;</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="mg-right ">
-                <div class="mg-frame ">
-                    <router-outlet></router-outlet>
+                </tab>
+            </tabset>
+        </div>
+        <div class="mg-bottom">
+            <div>
+
+                <div class="mg-left">
+                    <ul class="mg-nav-top">
+
+                        <li *ngFor="let nav of navTopModels;let i = index;" class="mg-nav-item">
+                            <!--<div [ngClass]="{'mg-nav-active': popover.isOpen}">12</div>-->
+                            <a href="###" class="item-link {{nav.className}}" [popover]="navTemplate" triggers="focus" container="body" placement="right">&nbsp;</a>
+                            <template #navTemplate> 
+                             <mg-nav  [navSubModels]="nav.children"></mg-nav>
+                        </template>
+                        </li>
+                    </ul>
+                    <ul *ngIf='!!navBottomModel' class="mg-nav-bottom ">
+                        <li class="mg-nav-item ">
+                            <a href="###" class="item-link {{navBottomModel.className}}" [popover]="navBottomTemplate" triggers="focus" container="body" placement="right">&nbsp;</a>
+                            <template #navBottomTemplate> 
+                             <mg-nav  [navSubModels]="navBottomModel.children"></mg-nav>
+                        </template>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mg-right ">
+                    <div class="mg-frame ">
+                        <router-outlet></router-outlet>
+                    </div>
                 </div>
             </div>
         </div>

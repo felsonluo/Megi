@@ -14,6 +14,10 @@ var NavComponent = (function () {
     }
     NavComponent.prototype.ngOnInit = function () {
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Array)
+    ], NavComponent.prototype, "navSubModels", void 0);
     NavComponent = __decorate([
         core_1.Component({
             selector: 'mg-nav',

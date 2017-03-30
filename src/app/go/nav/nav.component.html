@@ -1,12 +1,21 @@
 <div class="mg-sub-nav-container">
     <div class="mg-sub-nav">
-        <div><a href="###">银行账户</a></div>
-        <div><a href="###">销售</a></div>
-        <div><a href="###">采购</a></div>
-        <div><a href="###">费用报销</a></div>
-        <div><a href="###">工资</a></div>
-        <div><a href="###">总账</a></div>
-        <div><a href="###">销售发票</a></div>
-        <div><a href="###">采购发票</a></div>
+        <div [ngClass]="{'mg-sub-nav-top':!sub.children,'mg-sub-nav-bottom':!!sub.children}" *ngFor="let sub of navSubModels; let i = index;">
+            <a *ngIf="!sub.children" href="###">
+                {{('go.common.' + sub.nameKey) | translate}}
+                </a>
+            <div *ngIf="!!sub.children">
+                <div [ngClass]="{'mg-nav-first':i ==0, 'mg-nav-second':i == 1, 'mg-nav-last':i == 2}">
+                    <div class='mg-second-title'>{{('go.common.' + sub.nameKey) | translate}}</div>
+                    <div class='mg-second-div' class='mg-basic-setting'> 1</div>
+                    <div class='mg-second-div' class='mg-basic-setting'> 1</div>
+                    <div class='mg-second-div' class='mg-basic-setting'> 1</div>
+                    <div class='mg-second-div' class='mg-basic-setting'> 1</div>
+                    <!--<div class='mg-second-div' *ngFor='let child of sub.children' class='mg-basic-setting'>
+                        {{('go.common.' + child.nameKey) | translate}}
+                    </div>-->
+                </div>
+            </div>
+        </div>
     </div>
 </div>

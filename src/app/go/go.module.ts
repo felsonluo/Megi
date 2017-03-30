@@ -48,4 +48,6 @@ export function createTranslateLoader(http: Http) {
   bootstrap: [GoComponent],
   schemas: []
 })
-export class GoModule { }
+export class GoModule {
+
+ }

@@ -301,3 +301,8 @@ li.nav-item {
 .mg-frame {
     height: 100%;
 }
+
+.mg-second-div {
+    height: 30px;
+    margin-bottom: 0px;
+}
