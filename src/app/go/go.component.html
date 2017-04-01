@@ -121,10 +121,13 @@
                     </ul>
                     <ul *ngIf='!!navBottomModel' class="mg-nav-bottom ">
                         <li class="mg-nav-item ">
-                            <a href="###" class="item-link {{navBottomModel.className}}" [popover]="navBottomTemplate" triggers="focus" container="body" placement="right">&nbsp;</a>
-                            <template #navBottomTemplate> 
+                            <!--<a href="###" class="item-link {{navBottomModel.className}}" [popover]="navBottomTemplate" triggers="focus" container="body" placement="right">&nbsp;</a>-->
+
+                            <p-megaMenu [model]="navItems" orientation="vertical"></p-megaMenu>
+
+                            <!--<template #navBottomTemplate> 
                              <mg-nav  [navSubModels]="navBottomModel.children"></mg-nav>
-                        </template>
+                        </template>-->
                         </li>
                     </ul>
                 </div>

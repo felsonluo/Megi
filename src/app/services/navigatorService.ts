@@ -22,6 +22,6 @@ export class NavigatorService {
         let options = new RequestOptions({ headers: headers, search: params, responseType: ResponseContentType.Json });
 
         return this.http.get(this.navigatorListUrl, options)
-            .map((res: Response) => res.json())
+            .map((res: Response) => res.json());
     }
 }

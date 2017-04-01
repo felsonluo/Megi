@@ -4,18 +4,6 @@
             <a *ngIf="!sub.children" href="###">
                 {{('go.common.' + sub.nameKey) | translate}}
                 </a>
-            <div *ngIf="!!sub.children">
-                <div [ngClass]="{'mg-nav-first':i ==0, 'mg-nav-second':i == 1, 'mg-nav-last':i == 2}">
-                    <div class='mg-second-title'>{{('go.common.' + sub.nameKey) | translate}}</div>
-                    <div class='mg-second-div' class='mg-basic-setting'> 1</div>
-                    <div class='mg-second-div' class='mg-basic-setting'> 1</div>
-                    <div class='mg-second-div' class='mg-basic-setting'> 1</div>
-                    <div class='mg-second-div' class='mg-basic-setting'> 1</div>
-                    <!--<div class='mg-second-div' *ngFor='let child of sub.children' class='mg-basic-setting'>
-                        {{('go.common.' + child.nameKey) | translate}}
-                    </div>-->
-                </div>
-            </div>
         </div>
     </div>
 </div>

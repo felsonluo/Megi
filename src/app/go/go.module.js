@@ -44,6 +44,8 @@ var GoModule = (function () {
                 http_1.JsonpModule,
                 primeng_1.ChartModule,
                 primeng_1.PanelModule,
+                primeng_1.MenuModule,
+                primeng_1.MegaMenuModule,
                 ng2_bootstrap_1.ButtonsModule.forRoot(),
                 ng2_bootstrap_1.TypeaheadModule.forRoot(),
                 ng2_bootstrap_1.TabsModule.forRoot(),

@@ -3,7 +3,7 @@ import { ActivatedRoute, Router, ActivatedRouteSnapshot, RouterState, RouterStat
 
 import { FormBuilder, FormGroup, FormControl, Validators, ControlContainer } from '@angular/forms';
 
-import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { ChartModule, PanelModule, MenuModule, MenuItem, MegaMenuModule } from 'primeng/primeng';
 
 import { TranslateService } from 'ng2-translate';
 
@@ -37,6 +37,8 @@ export class GoComponent implements OnInit {
 
   public navBottomModel: Navigator;
 
+  public navItems: MenuItem[] = [{ label: '12' }];
+
   constructor(
     public navigatorService: NavigatorService,
     public translate: TranslateService,
@@ -58,13 +60,44 @@ export class GoComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    var langs: Observable<string> = this.translate.get('go.common');
+
     this.navigatorService.getNavigatorList().subscribe(
       data => {
         this.navBottomModel = data.slice(-1)[0];
-        this.navTopModels = data.slice(0,data.length - 1);
+        this.navTopModels = data.slice(0, data.length - 1);
+        this.navItems = this.translateNav2Items([this.navBottomModel], langs) || this.navItems;
         console.log(this.navBottomModel);
         console.log(this.navTopModels);
+        console.log(this.navItems);
       }
     );
+  }
+
+
+  public translateNav2Items(navs: Navigator[], langs: Observable<string>): MenuItem[] {
+
+    var translations = this.translate.getTranslation(this.translate.currentLang);
+
+    translations.subscribe(data => console.log(data['go.common.Welcome']));
+
+    let is: MenuItem[] = [{}];
+
+
+    for (var i = 0; i < 1; i++) {
+
+      let l: string = '';
+
+      langs.subscribe(res => l = res[navs[i].nameKey]);
+
+      is.push(
+        {
+          label: '123',
+          items: !!navs[i].children && navs[i].children.length > 0 ? this.translateNav2Items(navs[i].children, langs) : undefined
+        }
+      );
+    }
+    return is;
   }
 }

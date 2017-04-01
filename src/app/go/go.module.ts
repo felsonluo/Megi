@@ -3,7 +3,7 @@ import { HttpModule, JsonpModule, Http } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ControlContainer, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
-import { ChartModule,PanelModule } from 'primeng/primeng';
+import { ChartModule, PanelModule, MenuModule, MenuItem, MegaMenuModule } from 'primeng/primeng';
 
 import { TypeaheadModule, ButtonsModule, AlertModule, TabsModule, PopoverModule } from 'ng2-bootstrap';
 
@@ -36,6 +36,8 @@ export function createTranslateLoader(http: Http) {
     JsonpModule,
     ChartModule,
     PanelModule,
+    MenuModule,
+    MegaMenuModule,
     ButtonsModule.forRoot(),
     TypeaheadModule.forRoot(),
     TabsModule.forRoot(),
@@ -50,4 +52,4 @@ export function createTranslateLoader(http: Http) {
 })
 export class GoModule {
 
- }
+}

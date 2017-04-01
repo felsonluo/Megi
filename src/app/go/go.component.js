@@ -18,6 +18,7 @@ var GoComponent = (function () {
         this.navigatorService = navigatorService;
         this.translate = translate;
         this.currentLang = 'zh-cn';
+        this.navItems = [{ label: '12' }];
         this.translate.addLangs(["zh-cn", "zh-hk", "en"]);
         this.translate.setDefaultLang('zh-cn');
         var langInCookie = localStorage.getItem('mg-lang');
@@ -31,12 +32,33 @@ var GoComponent = (function () {
     }
     GoComponent.prototype.ngOnInit = function () {
         var _this = this;
+        var langs = this.translate.get('go.common');
         this.navigatorService.getNavigatorList().subscribe(function (data) {
             _this.navBottomModel = data.slice(-1)[0];
             _this.navTopModels = data.slice(0, data.length - 1);
+            _this.navItems = _this.translateNav2Items([_this.navBottomModel], langs) || _this.navItems;
             console.log(_this.navBottomModel);
             console.log(_this.navTopModels);
+            console.log(_this.navItems);
         });
+    };
+    GoComponent.prototype.translateNav2Items = function (navs, langs) {
+        var translations = this.translate.getTranslation(this.translate.currentLang);
+        translations.subscribe(function (data) { return console.log(data['go.common.Welcome']); });
+        var is = [{}];
+        var _loop_1 = function() {
+            var l = '';
+            langs.subscribe(function (res) { return l = res[navs[i].nameKey]; });
+            is.push({
+                label: '123',
+                items: !!navs[i].children && navs[i].children.length > 0 ? this_1.translateNav2Items(navs[i].children, langs) : undefined
+            });
+        };
+        var this_1 = this;
+        for (var i = 0; i < 1; i++) {
+            _loop_1();
+        }
+        return is;
     };
     __decorate([
         core_1.ViewChild(ng2_bootstrap_1.PopoverDirective), 
