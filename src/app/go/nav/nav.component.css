@@ -23,6 +23,14 @@
     color: #303942
 }
 
+.mg-sub-nav button {
+    background-color: transparent;
+    border: 0;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
 .mg-second-title {
     border-bottom: 1px solid #ccc;
     font-size: 14px;

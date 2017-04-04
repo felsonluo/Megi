@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ViewChildren, AfterViewInit, Input, ChangeDetectionStrategy, QueryList } from '@angular/core';
-import { ActivatedRoute, Router, ActivatedRouteSnapshot, RouterState, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRoute, Router, ActivatedRouteSnapshot, RouterState, RouterStateSnapshot, RouterOutletMap } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, Validators, ControlContainer } from '@angular/forms';
 import { ChartModule, PanelModule, MenuModule, MenuItem, MegaMenuModule } from 'primeng/primeng';
 import { TypeaheadMatch, AlertModule, TabsetComponent, PopoverDirective } from 'ng2-bootstrap';
@@ -38,8 +38,17 @@ export class GoComponent implements OnInit, AfterViewInit {
   public currentLang: string = 'zh-cn';
   public navModels: Navigator[];
 
-  public tabName0: string = 'Felson_0';
-  public tabName1: string = 'Felson_1';
+  public tabName0: string = '';
+  public tabName1: string = '';
+  public tabName2: string = '';
+  public tabName3: string = '';
+  public tabName4: string = '';
+  public tabName5: string = '';
+  public tabName6: string = '';
+  public tabName7: string = '';
+  public tabName8: string = '';
+  public tabName9: string = '';
+
 
   constructor(
     public navigatorService: NavigatorService,
@@ -97,10 +106,23 @@ export class GoComponent implements OnInit, AfterViewInit {
     });
   }
 
+  public blurNav(index: number) {
 
-  public selectNav() {
+    if (this.popoverArray && this.popoverArray.length > index)
+      this.popoverArray[index].isOpen = false;
+  }
+
+
+  public selectNav(index: number) {
 
     this.popoverArray = this.popovers.toArray();
+
+    for (var i = 0; i < this.popoverArray.length; i++) {
+
+      if (i !== index) {
+        this.popoverArray[i].isOpen = false;
+      }
+    }
   }
 
   public addTab(title: string, path: string) {

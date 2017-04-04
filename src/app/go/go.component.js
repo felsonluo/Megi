@@ -21,8 +21,16 @@ var GoComponent = (function () {
         this.router = router;
         this.tabs = [];
         this.currentLang = 'zh-cn';
-        this.tabName0 = 'Felson_0';
-        this.tabName1 = 'Felson_1';
+        this.tabName0 = '';
+        this.tabName1 = '';
+        this.tabName2 = '';
+        this.tabName3 = '';
+        this.tabName4 = '';
+        this.tabName5 = '';
+        this.tabName6 = '';
+        this.tabName7 = '';
+        this.tabName8 = '';
+        this.tabName9 = '';
         this.translate.addLangs(["zh-cn", "zh-hk", "en"]);
         this.translate.setDefaultLang('zh-cn');
         var langInCookie = localStorage.getItem('mg-lang');
@@ -59,8 +67,17 @@ var GoComponent = (function () {
             _this.tabSet.removeTab(item.tab);
         });
     };
-    GoComponent.prototype.selectNav = function () {
+    GoComponent.prototype.blurNav = function (index) {
+        if (this.popoverArray && this.popoverArray.length > index)
+            this.popoverArray[index].isOpen = false;
+    };
+    GoComponent.prototype.selectNav = function (index) {
         this.popoverArray = this.popovers.toArray();
+        for (var i = 0; i < this.popoverArray.length; i++) {
+            if (i !== index) {
+                this.popoverArray[i].isOpen = false;
+            }
+        }
     };
     GoComponent.prototype.addTab = function (title, path) {
         var _this = this;

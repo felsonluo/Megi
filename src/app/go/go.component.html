@@ -44,6 +44,86 @@
                         <router-outlet name='mgRouter1'></router-outlet>
                     </div>
                 </tab>
+                <tab [removable]='false' (removed)='removeTab(2)'>
+                    <template tabHeading>
+                    <span class="mg-tab-inner">
+                        <a  class="mg-tab-item  mg-tab-item-2" href="###"  >{{tabName2}}</a>
+                            </span>
+                </template>
+                    <div class="mg-frame ">
+                        <router-outlet name='mgRouter2'></router-outlet>
+                    </div>
+                </tab>
+                <tab [removable]=' false ' (removed)='removeTab(3) '>
+                    <template tabHeading>
+                    <span class="mg-tab-inner">
+                        <a  class="mg-tab-item  mg-tab-item-3" href="###"  >{{tabName3}}</a>
+                            </span>
+                </template>
+                    <div class="mg-frame ">
+                        <router-outlet name='mgRouter3 '></router-outlet>
+                    </div>
+                </tab>
+                <tab [removable]='false ' (removed)='removeTab(4) '>
+                    <template tabHeading>
+                    <span class="mg-tab-inner">
+                        <a  class="mg-tab-item  mg-tab-item-4" href="###"  >{{tabName4}}</a>
+                            </span>
+                </template>
+                    <div class="mg-frame ">
+                        <router-outlet name='mgRouter4 '></router-outlet>
+                    </div>
+                </tab>
+                <tab [removable]='false ' (removed)='removeTab(5) '>
+                    <template tabHeading>
+                    <span class="mg-tab-inner">
+                        <a  class="mg-tab-item  mg-tab-item-5" href="###"  >{{tabName5}}</a>
+                            </span>
+                </template>
+                    <div class="mg-frame ">
+                        <router-outlet name='mgRouter5 '></router-outlet>
+                    </div>
+                </tab>
+                <tab [removable]='false ' (removed)='removeTab(6) '>
+                    <template tabHeading>
+                    <span class="mg-tab-inner">
+                        <a  class="mg-tab-item  mg-tab-item-6" href="###"  >{{tabName6}}</a>
+                            </span>
+                </template>
+                    <div class="mg-frame ">
+                        <router-outlet name='mgRouter6 '></router-outlet>
+                    </div>
+                </tab>
+                <tab [removable]='false ' (removed)='removeTab(7) '>
+                    <template tabHeading>
+                    <span class="mg-tab-inner">
+                        <a  class="mg-tab-item  mg-tab-item-7" href="###"  >{{tabName7}}</a>
+                            </span>
+                </template>
+                    <div class="mg-frame ">
+                        <router-outlet name='mgRouter7 '></router-outlet>
+                    </div>
+                </tab>
+                <tab [removable]='false ' (removed)='removeTab(8)'>
+                    <template tabHeading>
+                    <span class="mg-tab-inner">
+                        <a  class="mg-tab-item  mg-tab-item-8" href="###"  >{{tabName8}}</a>
+                            </span>
+                </template>
+                    <div class="mg-frame ">
+                        <router-outlet name='mgRouter8 '></router-outlet>
+                    </div>
+                </tab>
+                <tab [removable]='false ' (removed)='removeTab(9) '>
+                    <template tabHeading>
+                    <span class="mg-tab-inner">
+                        <a  class="mg-tab-item  mg-tab-item-9" href="###"  >{{tabName9}}</a>
+                            </span>
+                </template>
+                    <div class="mg-frame ">
+                        <router-outlet name='mgRouter9'></router-outlet>
+                    </div>
+                </tab>
                 <tab [removable]='false' [disabled]='true'>
                     <template tabHeading>
                     <span class="mg-tab-inner stable">
@@ -58,9 +138,9 @@
                 <div class="mg-left">
                     <ul class="mg-nav-top">
                         <li *ngFor="let nav of navModels;let i = index;" class="mg-nav-item {{nav.className}}" [ngClass]='{ "mg-nav-active":popoverArray && popoverArray[i].isOpen} '>
-                            <a href='### ' class="item-link {{nav.className}}" (click)="selectNav()" [popover]="navTemplate" triggers="focus" container="body" placement="right">&nbsp;</a>
+                            <button class="item-link {{nav.className}}" (click)="selectNav(i)" [popover]="navTemplate" container="body" placement="right">&nbsp;</button>
                             <template #navTemplate> 
-                             <mg-nav [navSubModels]="nav.children"></mg-nav>
+                             <mg-nav [navSubModels]="nav.children" [popoverArray]="popoverArray" [popIndex] = "i"></mg-nav>
                         </template>
                         </li>
                     </ul>
