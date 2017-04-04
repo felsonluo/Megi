@@ -23,6 +23,7 @@
         "common": {
             "MegiManagement": "Megi Management",
             "Dashboard": "Dashboard",
+            "NewTabName": "New +",
             "BankAccount": "Bank Account",
             "InvoiceSale": "Invoice Sale",
             "InvoicePurchase": "Invoice Purchase",
@@ -32,6 +33,7 @@
             "InvoiceFapiao": "Invoice Fapiao",
             "PurchaseFapiao": "Purchase Fapiao",
             "FixAssets": "Fix Assets",
+            "Report": "Report",
             "AllReport": "All Report",
             "AgedReceivables": "Aged Receivables",
             "AgedPayables": "Aged Payables",
@@ -41,6 +43,7 @@
             "IncomeStatement": "Income Statement",
             "BalanceSheet": "Balance Sheet",
             "CashFlowStatement": "Cash Flow Statement",
+            "Contacts": "Contacts",
             "AllContacts": "All Contacts",
             "Customers": "Customers",
             "Suppliers": "Suppliers",

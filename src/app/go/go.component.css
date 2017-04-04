@@ -108,7 +108,7 @@ li.mg-nav-item {
     -webkit-padding-start: 0px;
 }
 
-.mg-tab li.nav-item:last-child a {
+.mg-go-tab li.nav-item:last-child a.nav-link {
     width: 78px;
 }
 
@@ -191,10 +191,10 @@ input::-ms-input-placeholder {
 
 div.mg-tab {
     height: 35px;
-    margin-left: 82px !important;
-    width: calc(100% - 82px) !important;
-    -webkit-width: calc(100% - 82px) !important;
-    -moz-width: calc(100% - 82px);
+    margin-left: 62px !important;
+    width: calc(100% - 62px) !important;
+    -webkit-width: calc(100% - 62px) !important;
+    -moz-width: calc(100% - 62px);
 }
 
 .mg-tab-inner {
@@ -275,6 +275,8 @@ li.nav-item {
 
 .mg-tab .nav-tabs {
     border-bottom: 0;
+    margin-left: 20px;
+    margin-top: 1px;
 }
 
 .mg-tab .nav-link {
@@ -300,6 +302,7 @@ li.nav-item {
 
 .mg-frame {
     height: 100%;
+    background-color: #fff;
 }
 
 .mg-second-div {

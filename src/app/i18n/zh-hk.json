@@ -23,6 +23,7 @@
         "common": {
             "MegiManagement": "美记管理平台",
             "Dashboard": "仪表盘",
+            "NewTabName": "新增 +",
             "BankAccount": "银行账户",
             "InvoiceSale": "销售",
             "InvoicePurchase": "采购",
@@ -32,6 +33,7 @@
             "InvoiceFapiao": "销售发票",
             "PurchaseFapiao": "采购发票",
             "FixAssets": "固定资产",
+            "Report": "报表",
             "AllReport": "全部报表",
             "AgedReceivables": "应收账龄分析表",
             "AgedPayables": "应付账龄分析表",
@@ -44,6 +46,7 @@
             "BalanceSheet": "资产负债表",
             "CashFlowStatement": "现金流量表",
             "AllContacts": "全部联系人",
+            "Contacts": "联系人",
             "Customers": "客户",
             "Suppliers": "供应商",
             "Other": "其他",

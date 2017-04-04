@@ -4,9 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ControlContainer, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
 import { ChartModule, PanelModule, MenuModule, MenuItem, MegaMenuModule } from 'primeng/primeng';
-
 import { TypeaheadModule, ButtonsModule, AlertModule, TabsModule, PopoverModule } from 'ng2-bootstrap';
-
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
 
 
@@ -16,6 +14,9 @@ import { GoComponent } from './go.component';
 import { NavComponent } from './nav/nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GoRoutes } from "./go.routers";
+import { ContactComponent } from './contact/contact.component';
+import { ReportComponent } from './report/report.component';
+import { TabComponent } from './tab/tab.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './src/app/i18n', '.json');
@@ -45,7 +46,7 @@ export function createTranslateLoader(http: Http) {
     PopoverModule.forRoot(),
     RouterModule.forRoot(GoRoutes)
   ],
-  declarations: [GoComponent, NavComponent, DashboardComponent],
+  declarations: [GoComponent, NavComponent, DashboardComponent, ContactComponent, ReportComponent, TabComponent],
   providers: [ControlContainer, NavigatorService],
   bootstrap: [GoComponent],
   schemas: []

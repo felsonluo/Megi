@@ -1,17 +1,18 @@
-import { Component, OnInit, ViewChild, AfterViewInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren, AfterViewInit, Input, ChangeDetectionStrategy, QueryList } from '@angular/core';
 import { ActivatedRoute, Router, ActivatedRouteSnapshot, RouterState, RouterStateSnapshot } from '@angular/router';
-
 import { FormBuilder, FormGroup, FormControl, Validators, ControlContainer } from '@angular/forms';
-
 import { ChartModule, PanelModule, MenuModule, MenuItem, MegaMenuModule } from 'primeng/primeng';
-
-import { TranslateService } from 'ng2-translate';
-
-import 'rxjs/add/observable/of';
-import { Observable } from 'rxjs/Observable';
 import { TypeaheadMatch, AlertModule, TabsetComponent, PopoverDirective } from 'ng2-bootstrap';
 
+
+import { TranslateService } from 'ng2-translate';
+import 'rxjs/add/observable/of';
+import { Observable } from 'rxjs/Observable';
+
 import { NavComponent } from './nav/nav.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ContactComponent } from './contact/contact.component';
+import { ReportComponent } from './report/report.component';
 
 
 
@@ -19,6 +20,7 @@ import { NavigatorService } from '../services/navigatorService';
 
 import { User } from '../model/user';
 import { Navigator } from '../model/navigator';
+import { MgTab } from '../model/tab';
 
 @Component({
   selector: 'my-app',
@@ -26,22 +28,23 @@ import { Navigator } from '../model/navigator';
   styleUrls: ['./go.component.css'],
   moduleId: module.id
 })
-export class GoComponent implements OnInit {
+export class GoComponent implements OnInit, AfterViewInit {
 
-  @ViewChild(PopoverDirective) popover: PopoverDirective;
+  @ViewChildren(PopoverDirective) popovers: QueryList<PopoverDirective>;
+  @ViewChild(TabsetComponent) tabSet: TabsetComponent;
 
-
+  public tabs: MgTab[] = [];
+  public popoverArray: PopoverDirective[];
   public currentLang: string = 'zh-cn';
+  public navModels: Navigator[];
 
-  public navTopModels: Navigator[];
-
-  public navBottomModel: Navigator;
-
-  public navItems: MenuItem[] = [{ label: '12' }];
+  public tabName0: string = 'Felson_0';
+  public tabName1: string = 'Felson_1';
 
   constructor(
     public navigatorService: NavigatorService,
     public translate: TranslateService,
+    public router: Router,
   ) {
 
     this.translate.addLangs(["zh-cn", "zh-hk", "en"]);
@@ -61,43 +64,89 @@ export class GoComponent implements OnInit {
 
   ngOnInit() {
 
-    var langs: Observable<string> = this.translate.get('go.common');
-
     this.navigatorService.getNavigatorList().subscribe(
       data => {
-        this.navBottomModel = data.slice(-1)[0];
-        this.navTopModels = data.slice(0, data.length - 1);
-        this.navItems = this.translateNav2Items([this.navBottomModel], langs) || this.navItems;
-        console.log(this.navBottomModel);
-        console.log(this.navTopModels);
-        console.log(this.navItems);
+        this.navModels = data;
+        console.log(data);
       }
     );
   }
 
+  public ngAfterViewInit() {
 
-  public translateNav2Items(navs: Navigator[], langs: Observable<string>): MenuItem[] {
+    //outlet : path
+    this.router.navigate(['/go', { outlets: { dashboardOutlet: 'dashboard' } }]);
 
-    var translations = this.translate.getTranslation(this.translate.currentLang);
+    this.tabSet.tabs.forEach((item, i) => {
 
-    translations.subscribe(data => console.log(data['go.common.Welcome']));
+      if (!item.disabled && i != 0) {
 
-    let is: MenuItem[] = [{}];
+        this.tabs.push({
+          tab: item,
+          url: "",
+          outlet: 'mgRouter' + (i - 1),
+          index: i - 1
+        });
+
+      }
+    });
+
+    this.tabs.forEach((item, index) => {
+
+      this.tabSet.removeTab(item.tab);
+    });
+  }
 
 
-    for (var i = 0; i < 1; i++) {
+  public selectNav() {
 
-      let l: string = '';
+    this.popoverArray = this.popovers.toArray();
+  }
 
-      langs.subscribe(res => l = res[navs[i].nameKey]);
+  public addTab(title: string, path: string) {
 
-      is.push(
-        {
-          label: '123',
-          items: !!navs[i].children && navs[i].children.length > 0 ? this.translateNav2Items(navs[i].children, langs) : undefined
-        }
-      );
+    let avaliableTab: MgTab;
+
+    for (var i = 0; i < this.tabs.length; i++) {
+      if (this.tabs[i].used !== true) {
+        avaliableTab = this.tabs[i];
+        break;
+      }
     }
-    return is;
+
+    if (avaliableTab) {
+
+      this.tabSet.addTab(avaliableTab.tab);
+
+      avaliableTab.tab.active = true;
+      avaliableTab.used = true;
+      avaliableTab.nameKey = title;
+
+
+      let t = this.tabSet.tabs[this.tabSet.tabs.length - 1];
+      this.tabSet.tabs[this.tabSet.tabs.length - 1] = this.tabSet.tabs[this.tabSet.tabs.length - 2];
+      this.tabSet.tabs[this.tabSet.tabs.length - 2] = t;
+
+      avaliableTab.tab.active = true;
+
+      this.translate.get(title).subscribe(res => {
+        this["tabName" + avaliableTab.index] = res;
+      });
+
+      let o = {};
+      o[avaliableTab.outlet] = path;
+
+      this.router.navigate(['/go', { outlets: o }]);
+
+    }
+    else {
+      console.log("没有可用的tab了");
+    }
+
+  }
+
+  public removeTab(index: number) {
+
+    this.tabs[index].used = false;
   }
 }

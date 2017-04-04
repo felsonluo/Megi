@@ -93,8 +93,8 @@ li.nav-item {
     cursor: pointer;
     background-repeat: no-repeat;
     display: block;
-    height: 34px;
-    line-height: 34px;
+    height: 35px;
+    line-height: 35px;
 }
 
 .mg-tab-item {
@@ -141,7 +141,6 @@ li.nav-item {
     color: #3c4b5d;
 }
 
-
 .mg-tab li.active .mg-tab-inner {
     background-image: url(./src/app/images/main-tab-bg-current.png) !important;
     background-position: right -34px;
@@ -154,6 +153,7 @@ li.nav-item {
 
 .mg-tab .nav-tabs {
     border-bottom: 0;
+    margin-left: 20px;
 }
 
 .mg-tab .nav-link {
@@ -172,7 +172,12 @@ li.nav-item {
     background-image: url(./src/app/images/tab-refresh-hover.png);
 }
 
-.mg-left .popover {
+.mg-go-tab li.nav-item:last-child a.nav-link {
+    width: 78px;
+}
+
+.popover {
     min-width: 100px;
     border-radius: 5px;
+    max-width: 500px;
 }

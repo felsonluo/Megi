@@ -21,6 +21,9 @@ var go_component_1 = require('./go.component');
 var nav_component_1 = require('./nav/nav.component');
 var dashboard_component_1 = require('./dashboard/dashboard.component');
 var go_routers_1 = require("./go.routers");
+var contact_component_1 = require('./contact/contact.component');
+var report_component_1 = require('./report/report.component');
+var tab_component_1 = require('./tab/tab.component');
 function createTranslateLoader(http) {
     return new ng2_translate_1.TranslateStaticLoader(http, './src/app/i18n', '.json');
 }
@@ -53,7 +56,7 @@ var GoModule = (function () {
                 ng2_bootstrap_1.PopoverModule.forRoot(),
                 router_1.RouterModule.forRoot(go_routers_1.GoRoutes)
             ],
-            declarations: [go_component_1.GoComponent, nav_component_1.NavComponent, dashboard_component_1.DashboardComponent],
+            declarations: [go_component_1.GoComponent, nav_component_1.NavComponent, dashboard_component_1.DashboardComponent, contact_component_1.ContactComponent, report_component_1.ReportComponent, tab_component_1.TabComponent],
             providers: [forms_1.ControlContainer, navigatorService_1.NavigatorService],
             bootstrap: [go_component_1.GoComponent],
             schemas: []

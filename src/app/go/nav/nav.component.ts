@@ -14,8 +14,6 @@ export class NavComponent implements OnInit {
 
   @Input() navSubModels: Navigator[];
 
-  @Input() settingItems: any[];
-
   constructor(
   ) { }
 

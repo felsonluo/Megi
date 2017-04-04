@@ -18,10 +18,6 @@ var NavComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', Array)
     ], NavComponent.prototype, "navSubModels", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Array)
-    ], NavComponent.prototype, "settingItems", void 0);
     NavComponent = __decorate([
         core_1.Component({
             selector: 'mg-nav',

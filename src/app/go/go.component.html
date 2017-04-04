@@ -2,139 +2,68 @@
 
     <div class="mg-top">
 
-        <div class="mg-org"><a href="###">Demo Company</a></div>
+        <div class="mg-org"><a>Demo Company</a></div>
         <div class="mg-action">
-            <a class="mg-search" href="###" title="搜索" tipid="Fiu60FhiVW">&nbsp;</a>
-            <a class="mg-help" href="###" id="megiFeedback" title="帮助">&nbsp;</a>
-            <a class="mg-attachment" id="aAttachment" href="###" title="附件">&nbsp;</a>
-            <a class="mg-user" href="###" title="用户">&nbsp;</a>
-            <div *ngIf='1==2' id="divUserInfo" class="m-user-info">
-                <b class="popup-arrow popup-arrow-notch"></b>
-                <b class="popup-arrow"></b>
-                <div class="m-user-img">
-                    <img id="imageHeaderImage" src="src/app/images/default-header.jpg" style="height: 80px;width: 80px;">
-                </div>
-                <div class="m-user-content">
-                    <p id="lblUserName" class="m-ellipsis" style="white-space:nowrap;" title="欧阳万里">欧阳万里</p>
-                    <ul>
-                        <li><a href="###" id="aProfilesettings" onclick="$.mTab.addOrUpdate('个人资料', 'Https://my.megichina.com/Setting/Profile/ProfileEdit',true)">个人资料</a></li>
-                        <li><a href="###" id="aAccountSettings" onclick="$.mTab.addOrUpdate('账号设置', 'Https://my.megichina.com/Setting/Account/AccountEdit',true)">账号设置</a></li>
-                    </ul>
-                </div>
-                <div class="m-lang-top">
-                    <a href="javascript:void(0)" id="0x0009" onclick="mUtil.ChangeLang('0x0009',1)" class="">English</a>
-                </div>
-                <div class="m-quit">
-                    <a id="aLogout" href="Https://login.megichina.com/Account/Logout">退出</a>
-                </div>
-            </div>
+            <a class="mg-search" title="搜索" (click)='addTab("go.common.Contacts","contact")'>&nbsp;</a>
+            <a class="mg-help" title="帮助" (click)='addTab("go.common.Report","report")'>&nbsp;</a>
+            <a class="mg-attachment" title="附件">&nbsp;</a>
+            <a class="mg-user" title="用户">&nbsp;</a>
         </div>
 
-        <div class="mg-tab">
+        <div class="mg-tab mg-go-tab">
             <tabset>
-                <tab>
+                <tab [removable]='false'>
                     <template tabHeading>
                     <span class="mg-tab-inner">
-                        <a href="###"  class="mg-tab-item">仪表盘</a>
-                        <a href="###" class="mg-refresh" > &nbsp;</a>
+                        <a  class="mg-tab-item" href="###" routerLink = "['/go', {outlets: {dashboard: 'dashboardOutlet'}}]">{{'go.common.Dashboard' | translate}}</a>
+                        <a  class="mg-refresh" > &nbsp;</a>
                             </span>
                 </template>
+                    <div class="mg-frame ">
+                        <router-outlet name='dashboardOutlet'></router-outlet>
+                    </div>
                 </tab>
-                <tab *ngIf='1== 0' removable="true">
+
+                <tab [removable]='false' (removed)='removeTab(0)'>
                     <template tabHeading>
                     <span class="mg-tab-inner">
-                        <a href="###"  class="mg-tab-item"></a>
+                        <a class="mg-tab-item mg-tab-item-0" href="###"  >{{tabName0}}</a>
                             </span>
                 </template>
+                    <div class="mg-frame ">
+                        <router-outlet name='mgRouter0'></router-outlet>
+                    </div>
                 </tab>
-                <tab *ngIf='1== 0' removable="true">
+                <tab [removable]='false' (removed)='removeTab(1)'>
                     <template tabHeading>
                     <span class="mg-tab-inner">
-                        <a href="###"  class="mg-tab-item"></a>
+                        <a  class="mg-tab-item  mg-tab-item-1" href="###"  >{{tabName1}}</a>
                             </span>
                 </template>
+                    <div class="mg-frame ">
+                        <router-outlet name='mgRouter1'></router-outlet>
+                    </div>
                 </tab>
-                <tab *ngIf='1== 0' removable="true">
-                    <template tabHeading>
-                    <span class="mg-tab-inner">
-                        <a href="###"  class="mg-tab-item"></a>
-                            </span>
-                </template>
-                </tab>
-                <tab *ngIf='1== 0' removable="true">
-                    <template tabHeading>
-                    <span class="mg-tab-inner">
-                        <a href="###"  class="mg-tab-item"></a>
-                            </span>
-                </template>
-                </tab>
-                <tab *ngIf='1== 0' removable="true">
-                    <template tabHeading>
-                    <span class="mg-tab-inner">
-                        <a href="###"  class="mg-tab-item"></a>
-                            </span>
-                </template>
-                </tab>
-                <tab *ngIf='1== 0' removable="true">
-                    <template tabHeading>
-                    <span class="mg-tab-inner">
-                        <a href="###"  class="mg-tab-item"></a>
-                            </span>
-                </template>
-                </tab>
-                <tab *ngIf='1== 0' removable="true">
-                    <template tabHeading>
-                    <span class="mg-tab-inner">
-                        <a href="###"  class="mg-tab-item"></a>
-                            </span>
-                </template>
-                </tab>
-                <tab *ngIf='1== 0' removable="true">
-                    <template tabHeading>
-                    <span class="mg-tab-inner">
-                        <a href="###"  class="mg-tab-item"></a>
-                            </span>
-                </template>
-                </tab>
-                <tab removable="true">
+                <tab [removable]='false' [disabled]='true'>
                     <template tabHeading>
                     <span class="mg-tab-inner stable">
-                        <a href="###"  class="mg-tab-item">新增 +</a>
-                            </span>
+                        <a class="mg-tab-item" href="###" >{{'go.common.NewTabName' | translate}}</a>
+                    </span>
                 </template>
                 </tab>
             </tabset>
         </div>
         <div class="mg-bottom">
             <div>
-
                 <div class="mg-left">
                     <ul class="mg-nav-top">
-
-                        <li *ngFor="let nav of navTopModels;let i = index;" class="mg-nav-item">
-                            <!--<div [ngClass]="{'mg-nav-active': popover.isOpen}">12</div>-->
-                            <a href="###" class="item-link {{nav.className}}" [popover]="navTemplate" triggers="focus" container="body" placement="right">&nbsp;</a>
+                        <li *ngFor="let nav of navModels;let i = index;" class="mg-nav-item {{nav.className}}" [ngClass]='{ "mg-nav-active":popoverArray && popoverArray[i].isOpen} '>
+                            <a href='### ' class="item-link {{nav.className}}" (click)="selectNav()" [popover]="navTemplate" triggers="focus" container="body" placement="right">&nbsp;</a>
                             <template #navTemplate> 
-                             <mg-nav  [navSubModels]="nav.children"></mg-nav>
+                             <mg-nav [navSubModels]="nav.children"></mg-nav>
                         </template>
                         </li>
                     </ul>
-                    <ul *ngIf='!!navBottomModel' class="mg-nav-bottom ">
-                        <li class="mg-nav-item ">
-                            <!--<a href="###" class="item-link {{navBottomModel.className}}" [popover]="navBottomTemplate" triggers="focus" container="body" placement="right">&nbsp;</a>-->
-
-                            <p-megaMenu [model]="navItems" orientation="vertical"></p-megaMenu>
-
-                            <!--<template #navBottomTemplate> 
-                             <mg-nav  [navSubModels]="navBottomModel.children"></mg-nav>
-                        </template>-->
-                        </li>
-                    </ul>
-                </div>
-                <div class="mg-right ">
-                    <div class="mg-frame ">
-                        <router-outlet></router-outlet>
-                    </div>
                 </div>
             </div>
         </div>
